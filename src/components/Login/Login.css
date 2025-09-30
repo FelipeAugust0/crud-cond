@@ -8,7 +8,7 @@
 }
 
 /* Define o card do formulário */
-.login-card {
+.login-form {
     background-color: var(--secundary-color);
     padding: 2.5rem;
     border-radius: 12px;
