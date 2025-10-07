@@ -5,6 +5,12 @@
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+
+  /* 🔥 Adições importantes */
+  height: 100vh;      /* ocupa toda a altura da tela */
+  position: fixed;     /* fixa na lateral esquerda */
+  top: 0;
+  left: 0;
 }
 
 .menu-title {
@@ -18,6 +24,7 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
+  flex-grow: 1; /* empurra o conteúdo pra baixo se precisar */
 }
 
 .menu-list li {
@@ -50,4 +57,3 @@
 .menu-button:hover {
   background-color: #218838;
 }
-
