@@ -38,6 +38,17 @@ function Menu({ onNavigate, onCreate }) {
             Página Inicial
           </a>
         </li>
+        <li>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate("logout");
+            }}
+          >
+            Logout
+          </a>
+        </li>
       </ul>
     </nav>
   );
