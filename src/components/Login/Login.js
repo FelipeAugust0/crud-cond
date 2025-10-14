@@ -1,29 +1,33 @@
-import React, { useState } from "react";
-import '../Login/Login.css';
+import { useState } from "react";
+import "./Login.css";
 
 function Login({ onLogin }) {
-  const [username, setUsername] = useState("");
+  // Variáveis de estado
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    onLogin(username, password);
-  };
+    onLogin(userName, password);
+  }
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
+    <div className="loginContainer">
+      <form className="loginForm" onSubmit={(e) => handleSubmit(e)}>
         <h2>Agenda de Contatos</h2>
-        <p>Faça login para continuar</p>
+
+        <p>Faça Login para continuar</p>
+
         <input
           type="text"
-          placeholder="Usuário (admin)"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Usuário (Admin)"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
         />
+
         <input
           type="password"
-          placeholder="Senha (123)"
+          placeholder="Senha"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
@@ -33,4 +37,5 @@ function Login({ onLogin }) {
     </div>
   );
 }
+
 export default Login;

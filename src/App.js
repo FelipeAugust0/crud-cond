@@ -11,8 +11,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeScreen, setActiveScreen] = useState("Welcome");
   const [contacts, setContacts] = useState([
-    { id: 1, name: "Felipe Augusto", phone: "143234325" },
-    { id: 2, name: "Beatriz Oliveira", phone: "21242352" },
+    { id: 1, name: "Felipe Augusto da Silva", phone: "16 991785082" },
+    { id: 2, name: "Beatriz Oliveira", phone: "16 991846282" },
   ]);
   const [contactToEdit, setContactToEdit] = useState(null);
 
@@ -20,37 +20,56 @@ function App() {
     if (userName === "admin" && password === "123") {
       setIsLoggedIn(true);
     } else {
-      alert("Usuário ou senha inválida!");
+      alert("Usuário ou senha inválida!!!");
     }
   }
 
   const handleSaveContact = (contact) => {
-    if (contact.id) {
+    if(contact.id) { 
+      // Se o contato já tem ID, é uma atualização
       setContacts(contacts.map(c => c.id === contact.id ? contact : c));
-      alert('Contato alterado com sucesso!');
+      alert('Contato alterado com sucesso!!')
     } else {
+      // Cadastra-se um contato novo
       contact.id = Date.now();
-      setContacts([... contacts, contact]);
-      alert('Contato cadastrado com sucesso!');
+      setContacts([...contacts, contact])
+      alert("Contato cadastrado com sucesso!");
     }
+
     setActiveScreen('list');
     setContactToEdit(null);
   };
 
   const handleDeleteContact = (id) => {
     setContacts(contacts.filter(c => c.id !== id));
-    alert('Contato deletado com sucesso!');
+    alert('Contato removido com sucesso!');
   };
-  const startEdit = (contact) => {};
-  const showCreateForm = () => {};
-  const handleNavigate = (screen) => {};
+
+  const startEdit = (contact) => {
+    setContactToEdit(contact);
+    setActiveScreen('form');
+  };
+
+
+  const showCreateForm = () => {
+    setContactToEdit(null);
+    setActiveScreen('form');
+  };
+
+  const handleNavigate = (screen) => {
+    if(screen === 'logout') {
+      setIsLoggedIn(false);
+    } else {
+      setActiveScreen(screen);
+    }
+  };
 
   if (!isLoggedIn) {
     return <Login onLogin={handleLogin} />;
   }
 
   return (
-    <div>
+    <div className="page">
       <Menu onNavigate={handleNavigate} onCreate={showCreateForm} />
       <main className="content">
         {activeScreen === "Welcome" && <Welcome />}

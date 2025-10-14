@@ -32,7 +32,7 @@ function Menu({ onNavigate, onCreate }) {
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              onNavigate("welcome");
+              onNavigate("Welcome");
             }}
           >
             Página Inicial

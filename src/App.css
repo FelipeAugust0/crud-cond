@@ -71,3 +71,9 @@ button:hover {
   background-color: var(--primary-hover-color);
   transform: translateY(-2px); /* Efeito sutil de elevação */
 }
+
+.page{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
